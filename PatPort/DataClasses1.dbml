@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PatientPortal" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-BB9DFCR\DALESQL;Initial Catalog=PatientPortal;Persist Security Info=True;User ID=sa" SettingsObjectName="PatPort.Properties.Settings" SettingsPropertyName="PatientPortalConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Note" Member="Notes">
+    <Type Name="Note">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Patient_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Doctor_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Doctor_Note" Member="Doctor" ThisKey="Doctor_Id" OtherKey="Id" Type="Doctor" IsForeignKey="true" />
+      <Association Name="Patient_Note" Member="Patient" ThisKey="Patient_Id" OtherKey="Id" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Doctor" Member="Doctors">
+    <Type Name="Doctor">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="First_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Last_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Display_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Practice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Sex" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cell_Number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Phone_Number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Specialty" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Doctor_Note" Member="Notes" ThisKey="Id" OtherKey="Doctor_Id" Type="Note" />
+      <Association Name="Doctor_Patient" Member="Patients" ThisKey="Id" OtherKey="Primary_Doctor" Type="Patient" />
+      <Association Name="Doctor_Appointment" Member="Appointments" ThisKey="Id" OtherKey="Doctor_Id" Type="Appointment" />
+      <Association Name="Practice_Doctor" Member="Practice1" ThisKey="Practice" OtherKey="Id" Type="Practice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Patient" Member="Patients">
+    <Type Name="Patient">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="First_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Last_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Display_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Primary_Doctor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Age" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Sex" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Insurance" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Cell_Number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Home_Number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Patient_Note" Member="Notes" ThisKey="Id" OtherKey="Patient_Id" Type="Note" />
+      <Association Name="Patient_Appointment" Member="Appointments" ThisKey="Id" OtherKey="Patient_Id" Type="Appointment" />
+      <Association Name="Doctor_Patient" Member="Doctor" ThisKey="Primary_Doctor" OtherKey="Id" Type="Doctor" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Appointment" Member="Appointments">
+    <Type Name="Appointment">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Patient_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Doctor_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Time" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Doctor_Appointment" Member="Doctor" ThisKey="Doctor_Id" OtherKey="Id" Type="Doctor" IsForeignKey="true" />
+      <Association Name="Patient_Appointment" Member="Patient" ThisKey="Patient_Id" OtherKey="Id" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Practice" Member="Practices">
+    <Type Name="Practice">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Practice_Doctor" Member="Doctors" ThisKey="Id" OtherKey="Practice" Type="Doctor" />
+    </Type>
+  </Table>
+</Database>

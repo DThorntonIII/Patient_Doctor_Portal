@@ -1,0 +1,19 @@
+﻿<Window x:Class="PatPort.MultiPatientPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PatPort"
+        mc:Ignorable="d"
+        Title="Select Patient" Height="200" Width="480"
+        ResizeMode="NoResize">
+    <Grid Background="LightBlue">
+        <ListBox Background="LightBlue" BorderThickness="0" x:Name="listbox" HorizontalAlignment="Left" Height="122" Margin="10,10,0,0" VerticalAlignment="Top" Width="452">
+            <ListView Background="LightGray" Name="PatientBox" Height="112" Width="440">
+
+            </ListView>
+        </ListBox>
+        <Button Content="Select" HorizontalAlignment="Left" Margin="137,139,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"/>
+        <Button Content="Cancel" Click="CancelButton_Click" HorizontalAlignment="Left" Margin="229,139,0,0" VerticalAlignment="Top" Width="80"/>
+    </Grid>
+</Window>

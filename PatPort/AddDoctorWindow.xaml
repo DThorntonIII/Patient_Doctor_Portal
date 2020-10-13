@@ -1,0 +1,57 @@
+﻿<Window x:Class="PatPort.AddDoctorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PatPort"
+        mc:Ignorable="d"
+        Title="Add/Edit Doctor" Height="650" Width="750"
+        ResizeMode="NoResize">
+    <Grid Background="LightBlue">
+        <Label Content="Label" HorizontalAlignment="Left" Margin="37,221,0,0" VerticalAlignment="Top" Width="85" Height="23" RenderTransformOrigin="1.042,0.586"/>
+        <Grid Background="LightBlue">
+
+
+
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="41" Margin="240,23,0,0" VerticalAlignment="Top" Width="262" RenderTransformOrigin="0.5,0.5"/>
+
+
+            <Label Content="Add/Edit Doctor" HorizontalAlignment="Left" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" FontSize="26" FontWeight="Bold" VerticalAlignment="Top" Margin="240,23,0,0" Width="262" Height="41"/>
+            <Label Content="First Name" HorizontalAlignment="Left" Margin="26,221,0,0" VerticalAlignment="Top" Width="85" Height="23" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="Last Name" HorizontalAlignment="Left" Margin="253,221,0,0" VerticalAlignment="Top" Width="85" Height="23" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="Practice" HorizontalAlignment="Left" Margin="499,221,0,0" VerticalAlignment="Top" Width="85" Height="23" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="D.O.B" HorizontalAlignment="Left" Margin="53,271,0,0" VerticalAlignment="Top" Width="85" Height="23" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="Sex" HorizontalAlignment="Left" Margin="287,272,0,0" VerticalAlignment="Top" Width="85" Height="23" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="Specialty" HorizontalAlignment="Left" Margin="499,271,0,0" VerticalAlignment="Top" Width="85" Height="30" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="Address" HorizontalAlignment="Left" Margin="38,321,0,0" VerticalAlignment="Top" Width="85" Height="23" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="City" HorizontalAlignment="Left" Margin="61,371,0,0" VerticalAlignment="Top" Width="85" Height="29" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="State" HorizontalAlignment="Left" Margin="183,371,0,0" VerticalAlignment="Top" Width="85" Height="29" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="Zip" HorizontalAlignment="Left" Margin="273,371,0,0" VerticalAlignment="Top" Width="33" Height="29" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="Cell Phone" HorizontalAlignment="Left" Margin="433,321,0,0" VerticalAlignment="Top" Width="109" Height="23" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="Home Phone" HorizontalAlignment="Left" Margin="417,371,0,0" VerticalAlignment="Top" Width="82" Height="23" RenderTransformOrigin="1.042,0.586"/>
+            <Label Content="Email" HorizontalAlignment="Left" Margin="53,421,0,0" VerticalAlignment="Top" Width="85" Height="23" RenderTransformOrigin="1.042,0.586"/>
+
+
+
+            <TextBox x:Name="firstNameTextBox" HorizontalAlignment="Left" Height="19" Margin="95,225,0,0" TextWrapping="Wrap" Text="{Binding First_Name}" VerticalAlignment="Top" Width="140"/>
+            <TextBox x:Name="lastNameTextBox" HorizontalAlignment="Left" Height="19" Margin="320,225,0,0" TextWrapping="Wrap" Text="{Binding Last_Name}" VerticalAlignment="Top" Width="140"/>
+            <ComboBox x:Name="practiceComboBox" HorizontalAlignment="Left" Margin="554,225,0,0" VerticalAlignment="Top" Width="143" Height="19" SelectedIndex="0"/>
+            <TextBox x:Name="DOBTextBox" LostFocus="DOBTextBox_LostFocus" HorizontalAlignment="Left" Height="19" Margin="94,275,0,0" TextWrapping="Wrap" Text="{Binding DOB ,StringFormat={}{0:MM/dd/yyyy}}" VerticalAlignment="Top" Width="140"/>
+            <TextBox x:Name="sexTextBox" HorizontalAlignment="Left" Height="19" Margin="320,275,0,0" TextWrapping="Wrap" Text="{Binding Sex}" VerticalAlignment="Top" Width="140"/>
+            <TextBox x:Name="specialtyTextBox" HorizontalAlignment="Left" Height="19" Margin="557,275,0,0" TextWrapping="Wrap" Text="{Binding Specialty}" VerticalAlignment="Top" Width="140"/>
+            <TextBox x:Name="addressTextBox" HorizontalAlignment="Left" Height="19" Margin="94,325,0,0" TextWrapping="Wrap" Text="{Binding Address}" VerticalAlignment="Top" Width="277"/>
+            <TextBox x:Name="cityTextBox" HorizontalAlignment="Left" Height="19" Margin="95,375,0,0" TextWrapping="Wrap" Text="{Binding City}" VerticalAlignment="Top" Width="85"/>
+            <ComboBox x:Name="stateComboBox" HorizontalAlignment="Left" Margin="218,375,0,0" VerticalAlignment="Top" Width="50" Height="19" SelectedIndex="0"/>
+            <TextBox x:Name="zipcodeTextBox" HorizontalAlignment="Left" Height="19" Margin="306,375,0,0" TextWrapping="Wrap" Text="{Binding Zipcode}" VerticalAlignment="Top" Width="65"/>
+            <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Height="19" Margin="94,425,0,0" TextWrapping="Wrap" Text="{Binding Email}" VerticalAlignment="Top" Width="277"/>
+            <TextBox x:Name="cellPhoneTextBox" LostFocus="cellPhoneTextBox_LostFocus" HorizontalAlignment="Left" Height="19" Margin="499,325,0,0" TextWrapping="Wrap" Text="{Binding Cell_Number}" VerticalAlignment="Top" Width="140"/>
+            <TextBox x:Name="homePhoneTextBox" LostFocus="homePhoneTextBox_LostFocus" HorizontalAlignment="Left" Height="19" Margin="499,375,0,0" TextWrapping="Wrap" Text="{Binding Phone_Number}" VerticalAlignment="Top" Width="140"/>
+            <Button x:Name="addDoctorButton" Content="Add Doctor" Click="AddDoctorButton_Click" HorizontalAlignment="Center" Margin="194,580,392,0" VerticalAlignment="Top" Width="156" Height="29"/>
+            <Button Content="Cancel" Click="CancelButton_Click" HorizontalAlignment="Center" Margin="395,580,190,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="0.294,0.44" Height="29"/>
+
+
+        </Grid>
+
+
+    </Grid>
+</Window>

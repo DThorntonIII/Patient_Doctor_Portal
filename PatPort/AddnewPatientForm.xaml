@@ -1,0 +1,106 @@
+﻿<Window x:Class="PatPort.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PatPort"
+        mc:Ignorable="d"
+        Title="Add/Edit Patient" Height="650" Width="750"
+        ResizeMode="NoResize">
+    <Grid Background="LightBlue" Margin="0,0,2,1" >
+
+        <TextBox Name="firstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="88,140,0,0" TextWrapping="Wrap" Text="{Binding First_Name}" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="lastNameTextBox" HorizontalAlignment="Left" Height="23" Margin="315,143,0,0" TextWrapping="Wrap" Text="{Binding Last_Name}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="sexTextBox" HorizontalAlignment="Left" Height="23" Margin="88,183,0,0" TextWrapping="Wrap" Text="{Binding Sex}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="SSNTextBox" LostFocus="SSNTextBox_LostFocus" HorizontalAlignment="Left" Height="23" Margin="315,183,0,0" TextWrapping="Wrap" Text="{Binding SSN}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DOBTextBox" LostFocus="DOBTextBox_LostFocus" HorizontalAlignment="Left" Height="23" Margin="88,226,0,0" TextWrapping="Wrap" Text="{Binding Age, StringFormat={}{0:MM/dd/yyyy}}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="insuranceTextBox" HorizontalAlignment="Left" Height="23" Margin="315,223,0,0" TextWrapping="Wrap" Text="{Binding Insurance}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="addressTextBox" HorizontalAlignment="Left" Height="23" Margin="88,265,0,0" TextWrapping="Wrap" Text="{Binding Address}" VerticalAlignment="Top" Width="347"/>
+        <TextBox x:Name="cityTextBox" HorizontalAlignment="Left" Height="23" Margin="88,303,0,0" TextWrapping="Wrap" Text="{Binding City}" VerticalAlignment="Top" Width="151"/>
+        <ComboBox Name="stateComboBox" HorizontalAlignment="Left" Margin="281,304,0,0" VerticalAlignment="Top" Width="62"/>
+        <TextBox x:Name="zipcodeTextBox" LostFocus="zipcodeTextBox_LostFocus" HorizontalAlignment="Left" Height="23" Margin="374,303,0,0" TextWrapping="Wrap" Text="{Binding Zipcode}" VerticalAlignment="Top" Width="61"/>
+        <TextBox Name="cellNumberTextBox" LostFocus="cellNumberTextBox_LostFocus" HorizontalAlignment="Left" Height="23" Margin="88,340,0,0" TextWrapping="Wrap" Text="{Binding Cell_Number}" VerticalAlignment="Top" Width="101"/>
+        <TextBox x:Name="HomeNumberTextBox" LostFocus="HomeNumberTextBox_LostFocus" HorizontalAlignment="Left" Height="23" Margin="334,340,0,0" TextWrapping="Wrap" Text="{Binding Home_Number}" VerticalAlignment="Top" Width="101"/>
+        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Height="23" Margin="88,376,0,0" TextWrapping="Wrap" Text="{Binding Email}" VerticalAlignment="Top" Width="128"/>
+
+
+        <ComboBox Name="primaryDoctorComboBox" Background="White" HorizontalAlignment="Left" Margin="315,377,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" RenderTransformOrigin="0.275,-1.451"/>
+
+
+        <TextBox x:Name="nextAppointmentTextBox" LostFocus="nextAppointmentTextBox_LostFocus" TextChanged="nextAppointmentTextBox_TextChanged" HorizontalAlignment="Left" Height="23" Margin="625,330,0,0" TextWrapping="Wrap" Text="{Binding Date, StringFormat={}{0:MM/dd/yyyy}}" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.126"/>
+                    <TranslateTransform X="0.035" Y="0.15"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <ComboBox  Name="appointmentTimeComboBox" HorizontalAlignment="Left" Margin="617,367,0,0" VerticalAlignment="Top" Width="77" RenderTransformOrigin="0.5,0.5">
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.126"/>
+                    <TranslateTransform X="-0.03" Y="0.14"/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+        </ComboBox>
+        <TextBox x:Name="noteTextBox" HorizontalAlignment="Center" Height="78" Margin="26,457,18,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="698" />
+
+
+
+        <Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15" HorizontalContentAlignment="Center" Content="Add/Edit Patient" Width="268" FontSize="30" />
+        <Label Content="First Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,137,0,0" Width="73"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="244,140,0,0" Width="66"/>
+        <Label Content="Sex" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="53,180,0,0" Width="35"/>
+        <Label Content="Address" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,262,0,0" Width="56" RenderTransformOrigin="0.526,0.564"/>
+        <Label Content="D.O.B" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,223,0,0" Width="40" RenderTransformOrigin="0.845,0.589"/>
+        <Label Content="Primary Doctor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="221,376,0,0" Width="89"/>
+        <Label Content="Next Appointment Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="485,329,0,0" Width="136" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.126"/>
+                    <TranslateTransform X="0.034" Y="-0.075"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="NOTES" HorizontalAlignment="Left" Margin="26,431,0,0" VerticalAlignment="Top" Width="57"/>
+        <Button Click="addPatientButton_Click" x:Name="addPatientButton" Content="Add Patient" HorizontalAlignment="Left" Margin="203,561,0,0" VerticalAlignment="Top" Width="142"/>
+        <Button x:Name="cancelButton" Click="cancelButton_Click" Content="Cancel" HorizontalAlignment="Left" Margin="415,561,0,0" VerticalAlignment="Top" Width="142"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="41" Margin="240,23,0,0" VerticalAlignment="Top" Width="262" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.879"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.767"/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Calendar MouseDoubleClick="calandar_MouseDoubleClick" Name="calandar" HorizontalAlignment="Left" Margin="510,152,0,0" VerticalAlignment="Top" Height="152"/>
+        <Label Content="Time" HorizontalAlignment="Left" Margin="576,364,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.126"/>
+                    <TranslateTransform X="-0.034" Y="0.004"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+        <Label Content="Social Secuity #" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="221,183,0,0" Width="97"/>
+        <Label Content="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="53,300,0,0" Width="56" RenderTransformOrigin="0.526,0.564"/>
+        <Label Content="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="244,300,0,0" Width="42" RenderTransformOrigin="0.526,0.564"/>
+        <Label Content="Zip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,300,0,0" Width="56" RenderTransformOrigin="0.526,0.564"/>
+        <Label Content="Insurance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="248,220,0,0" Width="97"/>
+        <Label Content="Cell #" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,337,0,0" Width="46" RenderTransformOrigin="0.526,0.564"/>
+        <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,376,0,0" Width="41" RenderTransformOrigin="0.923,0.538"/>
+        <Label Content="Home #" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,340,0,0" Width="56" RenderTransformOrigin="0.526,0.564"/>
+
+    </Grid>
+</Window>
